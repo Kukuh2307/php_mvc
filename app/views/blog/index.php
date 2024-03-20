@@ -1,6 +1,7 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-6">
+            <?php Flasher::flash(); ?>
             <!-- Modal -->
             <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="judulModal" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -34,6 +35,7 @@
                     </div>
                 </div>
             </div>
+
             <h3 class="mb-4">Blog</h3>
             <button type="button" class="btn btn-primary mb-4" data-toggle="modal" data-target="#formModal">
                 Buat Artikel
