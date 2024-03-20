@@ -1,0 +1,1 @@
+<h1>Halaman <?= $data['nama'] ?></h1>
