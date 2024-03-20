@@ -44,7 +44,10 @@
                 <?php foreach ($data["Blog"] as $blog) : ?>
                     <li class="list-group-item list-group-item d-flex justify-content-between align-items-center">
                         <?= $blog["judul"]; ?>
-                        <a href="<?= BASE_URL; ?>/blog/detail/<?= $blog['id']; ?>" class="badge badge-primary">baca</a>
+                        <div class="btn">
+                            <a href="<?= BASE_URL; ?>/blog/detail/<?= $blog['id']; ?>" class="badge badge-primary">Baca</a>
+                            <a href="<?= BASE_URL; ?>/blog/delete/<?= $blog['id']; ?>" class="badge badge-danger" onclick="return confirm('Yakin ingin menghapus data??')">Hapus</a>
+                        </div>
                     </li>
                 <?php endforeach; ?>
             </ul>

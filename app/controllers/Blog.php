@@ -31,4 +31,17 @@ class Blog extends Controller
             exit;
         }
     }
+
+    public function delete($id)
+    {
+        if ($this->model('Blog_model')->hapusArtikel($id) > 0) {
+            Flasher::setFlash('berhasil', 'dihapus', 'success');
+            header('Location: ' . BASE_URL . '/blog');
+            exit;
+        } else {
+            Flasher::setFlash('gagal', 'ditambahkan', 'danger');
+            header('Location: ' . BASE_URL . '/blog');
+            exit;
+        }
+    }
 }
