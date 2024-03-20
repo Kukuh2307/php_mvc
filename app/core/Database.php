@@ -8,6 +8,7 @@ class Database
     private $db_name = DB_NAME;
     private $dbh;
     private $stmt;
+
     public function __construct()
     {
         //data source name
@@ -22,10 +23,12 @@ class Database
             die($e->getMessage());
         }
     }
+
     public function query($query)
     {
         $this->stmt = $this->dbh->prepare($query);
     }
+
     public function bind($param, $value, $type = null)
     {
         if (is_null($type)) {
@@ -46,20 +49,24 @@ class Database
         }
         $this->stmt->bindValue($param, $value, $type);
     }
+
     public function execute()
     {
         $this->stmt->execute();
     }
+
     public function resultAll()
     {
         $this->execute();
         return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
     public function resultSingle()
     {
         $this->execute();
         return $this->stmt->fetch(PDO::FETCH_ASSOC);
     }
+
     public function rowCount()
     {
         return $this->stmt->rowCount();

@@ -18,4 +18,12 @@ class Blog extends Controller
         $this->view('blog/detail', $data);
         $this->view('templates/footer');
     }
+
+    public function tambah()
+    {
+        if ($this->model('Blog_model')->buatArtikel($_POST) > 0) {
+            header('Location: ' . BASE_URL . '/blog');
+            exit;
+        }
+    }
 }
