@@ -33,6 +33,24 @@ class Blog_model
         return $this->db->rowCount();
     }
 
+
+    public function ubahArtikel($data)
+    {
+        $query = "UPDATE " . $this->table . " SET
+                judul = :judul,
+                tulisan = :tulisan,
+                penulis = :penulis
+                WHERE id = :id";
+
+        $this->db->query($query);
+        $this->db->bind('judul', $data['judul']);
+        $this->db->bind('tulisan', $data['tulisan']);
+        $this->db->bind('penulis', $data['penulis']);
+        $this->db->bind('id', $data['id']);
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
+
     public function hapusArtikel($id)
     {
         $query = "DELETE FROM " . $this->table . " WHERE id = :id";
