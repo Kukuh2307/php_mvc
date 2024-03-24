@@ -31,4 +31,15 @@ class User extends Controller
             exit;
         }
     }
+    public function delete($id)
+    {
+        if ($this->model('User_model')->hapusUser($id) > 0) {
+            Flasher::setFlash('berhasil', 'dihapus', 'success');
+            header('Location: ' . BASE_URL . '/user');
+            exit;
+        } else {
+            Flasher::setFlash('gagal', 'dihapus', 'danger');
+            header('Location: ' . BASE_URL . '/user');
+        }
+    }
 }
