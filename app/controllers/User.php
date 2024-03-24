@@ -4,26 +4,18 @@ class User extends Controller
     public function index()
     {
         $data['judul'] = 'User';
+        $data['user'] = $this->model('User_model')->getAllUser();
         $this->view('templates/header', $data);
-        $this->view('user/index');
-        $this->view('templates/footer');
-    }
-    public function profile($nama = 'Kukhuh', $pekerjaan = 'Fullstack')
-    {
-        $data['judul'] = 'User';
-        $data['nama'] = $nama;
-        $data['pekerjaan'] = $pekerjaan;
-        $this->view('templates/header');
-        $this->view('user/profile', $data);
+        $this->view('user/index', $data);
         $this->view('templates/footer');
     }
 
-    public function test()
+    public function detail($id)
     {
-        $data['judul'] = 'test data user';
-        $data['coba'] = 'coba';
-        $this->view('templates/header');
-        $this->view('user/test', $data);
+        $data['judul'] = 'detail User';
+        $data['user'] = $this->model('User_model')->getUserById($id);
+        $this->view('templates/header', $data);
+        $this->view('user/detail', $data);
         $this->view('templates/footer');
     }
 }
