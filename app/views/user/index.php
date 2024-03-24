@@ -13,7 +13,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form id="userForm" action="<?= BASE_URL; ?>/blog/tambah" method="post">
+                            <form id="userForm" action="<?= BASE_URL; ?>/user/tambah" method="post">
                                 <input type="hidden" name="id" id="id">
                                 <div class="form-group">
                                     <label for="nama">Nama User</label>

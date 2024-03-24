@@ -18,4 +18,17 @@ class User extends Controller
         $this->view('user/detail', $data);
         $this->view('templates/footer');
     }
+
+    public function tambah()
+    {
+        if ($this->model('User_model')->tambahUser($_POST) > 0) {
+            Flasher::setFlash('berhasil', 'ditambahkan', 'success');
+            header('Location: ' . BASE_URL . '/user');
+            exit;
+        } else {
+            Flasher::setFlash('gagal', 'ditambahkan', 'danger');
+            header('Location: ' . BASE_URL . '/user');
+            exit;
+        }
+    }
 }
