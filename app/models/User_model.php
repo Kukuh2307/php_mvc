@@ -42,4 +42,22 @@ class User_model
         $this->db->execute();
         return $this->db->rowCount();
     }
+
+    public function ubahUser($data)
+    {
+        $query = "UPDATE " . $this->table . " SET
+                nama = :nama,
+                email = :email,
+                position = :position,
+                alamat = :alamat
+                WHERE id = :id";
+        $this->db->query($query);
+        $this->db->bind('nama', $data['nama']);
+        $this->db->bind('email', $data['email']);
+        $this->db->bind('position', $data['position']);
+        $this->db->bind('alamat', $data['alamat']);
+        $this->db->bind('id', $data['id']);
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
 }

@@ -7,7 +7,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="UserModalLabel">Tambah User Baru</h5>
+                            <h5 class="modal-title" id="UserModalLabel"></h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -40,7 +40,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button id="submitBtn" type="submit" class="btn btn-primary">Simpan User</button>
+                            <button id="submitBtn" type="submit" class="btn btn-primary"></button>
                             </form>
                         </div>
                     </div>

@@ -42,4 +42,27 @@ class User extends Controller
             header('Location: ' . BASE_URL . '/user');
         }
     }
+
+    public function getUbah()
+    {
+        // echo $_POST['id'];
+        echo json_encode($this->model('User_model')->getUserById($_POST['id']));
+    }
+
+    public function ubah()
+    {
+        if ($_POST['nama'] == null || $_POST['email'] == null || $_POST['position'] == null || $_POST['alamat'] == null) {
+            header('Location: ' . BASE_URL .  "/user");
+        } else {
+            if ($this->model('User_model')->ubahUser($_POST) > 0) {
+                Flasher::setFlash('berhasil', 'diubah', 'success');
+                header('Location: ' . BASE_URL . '/user');
+                exit;
+            } else {
+                Flasher::setFlash('berhasil', 'diubah', 'success');
+                header('Location: ' . BASE_URL . '/user');
+                exit;
+            }
+        }
+    }
 }
